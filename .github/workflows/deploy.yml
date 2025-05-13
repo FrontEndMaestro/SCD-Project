@@ -29,12 +29,13 @@ jobs:
       - name: Install Frontend Dependencies
         working-directory: ./frontend
         run: |
+          CI=false
           npm install
           npm run build
 
       - name: Install Backend Dependencies
         working-directory: ./backend
-        run: npm install
+        run: CI=false npm install
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
